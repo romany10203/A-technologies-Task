@@ -1,0 +1,70 @@
+{
+    "nav":{
+        "lable":"Add New Resources",
+        "active":"Active",
+        "notActive":"Not Active",
+        "save":"Save Changes",
+        "delete":"Delete Resources"
+    },
+    "userData":{
+        "lable":"Resourcer Name"
+    },
+    "resourceData":{
+        "type":{
+            "lable":"Choose the type",
+            "day":"Reserve Through a Day",
+            "days":{
+                "text":"Reserve Duration",
+                "note":"More than a day"
+            }
+        },
+        "duration":{
+            "duration":{
+                "lable":"Avalible to",
+                "unit":"Month"
+            },
+            "time":{
+                "lable":"Time",
+                "serviceTime":"Service Time",
+                "fixedTime":"Fixed Time",
+                "unit":"Minutes"
+            },
+            "multipleBooking":{
+                "lable":"Multiple Booking",
+                "forOne":"Only one",
+                "forMore":"For more",
+                "unit":"Time"
+            }
+        }
+    },
+    "resourcesList":{
+        "title":"Determine the resource's working hours",
+        "desc":"Configure your week settings here. Simply move the sliders and add/remove break times to set up work hours.",
+        "buttons":{
+            "option1":"Traditional settings",
+            "option2":"Advanced Settings"
+        }
+    },
+    "days":{
+        "sat":"saturday",
+        "sun":"sunday",
+        "mon":"monday",
+        "tue":"tuesday",
+        "wed":"wednesday",
+        "thu":"thursday",
+        "fri":"friday"
+    },
+    "timing":{
+        "start":"start time",
+        "end":"end time",
+        "mor":"morning",
+        "eve":"evening",
+        "choose":"choose time",
+        "select":{
+            "hh":"hour",
+            "mm":"minutes",
+            "currnet":"cuurent time",
+            "save":"save time"
+        }
+    }
+}

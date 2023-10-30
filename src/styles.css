@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.mutedTxtBook{
+    font-size:14px;
+    font-weight: 400;
+    color: #1C1C28;
+}
+
+.muteTxt{
+    color: #92A1AD;
+    font-size:14px;
+    font-weight: 400;
+}

@@ -1,0 +1,88 @@
+
+
+<div class="row">
+    <div class="col-md-2 col-sm-3">
+        <div class="d-flex align-items-center">
+            <div class="">
+                <label class="switch" [for]="'checkboxDay'+day">
+                    <input (change)="active=!active" [checked]="active" type="checkbox" [id]="'checkboxDay'+day" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+            <p class="dayName mutedTxtBook">
+                <label class="dayName" [for]="'checkboxDay'+day">{{day}}</label>
+            </p>
+        </div>
+    </div>
+    <div *ngIf="active" class="col-md-10 col-sm-9">
+        <div class="row align-items-center">
+            <div class="col-sm-5">
+                <div class="startTime">
+                    <p class="muteTxt"> <span (click)="chooseStTime=!chooseStTime" > {{"timing.start" | translate}} </span></p>
+                    <div class="time">
+                        <p class="mutedTxtBook" *ngIf="startTimeH == undefined">{{"timing.choose" | translate}}</p>
+                        <p *ngIf="startTimeH != undefined">
+                            {{startTimeH}} : {{startTimeM}} 
+                            <span *ngIf="startTimeH<=11">{{ "timing.mor" | translate}}</span> 
+                            <span *ngIf="startTimeH>11">{{ "timing.eve" | translate}}</span> 
+                        </p>
+                    </div>
+                    <div *ngIf="chooseStTime" class="forChoosingTime">
+                        <div class="d-flex justify-content-around">
+                            <ul>
+                                <li> {{"timing.select.hh" | translate}} </li>
+                                <li *ngFor="let _ of [].constructor(24); let i = index" (click)="startTimeH = i" >
+                                    <p>{{i}}</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>{{"timing.select.mm" | translate}}</li>
+                                <li *ngFor="let _ of [].constructor(12); let i = index" (click)="startTimeM = i*5" >
+                                    <p>{{i*5}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <p>--</p>
+            </div>
+            <div class="col-sm-5">
+                <div class="endTime">
+                    <p class="muteTxt"> <span (click)="chooseEndTime=!chooseEndTime"> {{"timing.end" | translate}} </span></p>
+                    <div class="time">
+                        <p class="mutedTxtBook" *ngIf="endTimeH == undefined">{{"timing.choose" | translate}}</p>
+                        <p *ngIf="endTimeH != undefined">
+                            {{endTimeH}} : {{endTimeM}}
+                            <span *ngIf="endTimeH<=11">{{ "timing.mor" | translate}}</span> 
+                            <span *ngIf="endTimeH>11">{{ "timing.eve" | translate}}</span> 
+                        </p>
+                    </div>
+                    <div *ngIf="chooseEndTime" class="forChoosingTime">
+
+                        <div class="d-flex justify-content-around">
+                            <ul>
+                                <li>{{"timing.select.hh" | translate}}</li>
+                                <li *ngFor="let _ of [].constructor(24); let i = index" (click)="endTimeH = i" >
+                                    <p>{{i}}</p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>{{"timing.select.mm" | translate}}</li>
+                                <li *ngFor="let _ of [].constructor(12); let i = index" (click)="endTimeM = i*5" >
+                                    <p>{{i*5}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+             <div class="col-sm-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24" fill="currentColor">
+                    <path d="M12.8713 23.2832H4.39873C2.44192 23.2832 0.850006 21.6761 0.850006 19.7008V7.56537C0.850006 5.58999 2.44192 3.98297 4.39873 3.98297H12.8713C14.8281 3.98297 16.42 5.58999 16.42 7.56537V19.7008C16.42 21.6761 14.8281 23.2832 12.8713 23.2832ZM4.39873 5.77417C3.42039 5.77417 2.62437 6.57775 2.62437 7.56537V19.7008C2.62437 20.6884 3.42039 21.492 4.39873 21.492H12.8713C13.8496 21.492 14.6457 20.6884 14.6457 19.7008V7.56537C14.6457 6.57775 13.8496 5.77417 12.8713 5.77417H4.39873ZM19.9688 17.4618V3.93819C19.9688 1.96281 18.3768 0.355789 16.42 0.355789H6.57232C6.08229 0.355789 5.68514 0.756705 5.68514 1.25139C5.68514 1.74607 6.08229 2.14699 6.57232 2.14699H16.42C17.3984 2.14699 18.1944 2.95057 18.1944 3.93819V17.4618C18.1944 17.9564 18.5915 18.3574 19.0816 18.3574C19.5716 18.3574 19.9688 17.9564 19.9688 17.4618Z" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>

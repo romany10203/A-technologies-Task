@@ -1,0 +1,8 @@
+.buttonsSettings{
+    padding: 10px;
+}
+
+.buttonsSettings .activeBtn{
+    background-color: #0771DE;
+    color: #FEFEFE;
+}

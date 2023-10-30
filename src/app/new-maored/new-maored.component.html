@@ -1,0 +1,168 @@
+<div  class="btn">
+    <p *ngIf="lang==='ar'" (click)="useLanguage('en')">English</p>
+    <p *ngIf="lang==='en'" (click)="useLanguage('ar')">عربي</p>
+</div>
+
+<header class="header">
+    <div ngClass="" class="d-flex align-items-center" >
+        <i class="mx-5 fa fa-arrow-right"></i>
+        <!-- <p class="txtEdafa" > {{ "nav.lable" | translate }} </p> -->
+        <p class="txtEdafa" translate>nav.lable</p>
+    </div>
+    <div class="d-flex align-items-center ">
+        <div class="d-flex align-items-center">
+            <label class="switch" for="checkbox">
+                <input (change)="active=!active" [checked]="active" type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+        </div>
+        <p *ngIf="active" class="p-0 activationText m-0 mx-4">{{ "nav.active" | translate }}</p>
+        <p *ngIf="!active" class="p-0 activationText m-0 mx-4">{{ "nav.notActive" | translate }}</p>
+        <button class="btn saveingMaored px-3"> {{ "nav.save" | translate }} </button>
+        <button class="btn deleteMaored px-3"> 
+            {{ "nav.delete" | translate }} 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 6.72998C20.98 6.72998 20.95 6.72998 20.92 6.72998C15.63 6.19998 10.35 5.99998 5.11998 6.52998L3.07998 6.72998C2.65998 6.76998 2.28998 6.46998 2.24998 6.04998C2.20998 5.62998 2.50998 5.26998 2.91998 5.22998L4.95998 5.02998C10.28 4.48998 15.67 4.69998 21.07 5.22998C21.48 5.26998 21.78 5.63998 21.74 6.04998C21.71 6.43998 21.38 6.72998 21 6.72998Z" fill="currentColor"/>
+                <path d="M8.50001 5.72C8.46001 5.72 8.42001 5.72 8.37001 5.71C7.97001 5.64 7.69001 5.25 7.76001 4.85L7.98001 3.54C8.14001 2.58 8.36001 1.25 10.69 1.25H13.31C15.65 1.25 15.87 2.63 16.02 3.55L16.24 4.85C16.31 5.26 16.03 5.65 15.63 5.71C15.22 5.78 14.83 5.5 14.77 5.1L14.55 3.8C14.41 2.93 14.38 2.76 13.32 2.76H10.7C9.64001 2.76 9.62001 2.9 9.47001 3.79L9.24001 5.09C9.18001 5.46 8.86001 5.72 8.50001 5.72Z" fill="currentColor"/>
+                <path d="M15.21 22.75H8.79002C5.30002 22.75 5.16002 20.82 5.05002 19.26L4.40002 9.19001C4.37002 8.78001 4.69002 8.42001 5.10002 8.39001C5.52002 8.37001 5.87002 8.68001 5.90002 9.09001L6.55002 19.16C6.66002 20.68 6.70002 21.25 8.79002 21.25H15.21C17.31 21.25 17.35 20.68 17.45 19.16L18.1 9.09001C18.13 8.68001 18.49 8.37001 18.9 8.39001C19.31 8.42001 19.63 8.77001 19.6 9.19001L18.95 19.26C18.84 20.82 18.7 22.75 15.21 22.75Z" fill="currentColor"/>
+                <path d="M13.66 17.25H10.33C9.92002 17.25 9.58002 16.91 9.58002 16.5C9.58002 16.09 9.92002 15.75 10.33 15.75H13.66C14.07 15.75 14.41 16.09 14.41 16.5C14.41 16.91 14.07 17.25 13.66 17.25Z" fill="currentColor"/>
+                <path d="M14.5 13.25H9.5C9.09 13.25 8.75 12.91 8.75 12.5C8.75 12.09 9.09 11.75 9.5 11.75H14.5C14.91 11.75 15.25 12.09 15.25 12.5C15.25 12.91 14.91 13.25 14.5 13.25Z" fill="currentColor"/>
+              </svg>
+        </button>
+    </div>
+</header>
+
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class=" row align-items-center">
+                    <div class="col-3">
+                        <div class="position-relative text-start">
+                        <div class="addingImg">
+                            <img  src="../../assets/images/gallery.png" alt="">
+                            <input (change)="onChangeImg($event)" [value]="deafualImg" type="file" id="addingImgId">
+                        </div>
+                        <img *ngIf="!hasImg" class="newImg img-fluid" [src]=" deafualImg">
+                        <img *ngIf="hasImg" class="newImg img-fluid" [src]=" imgLink">
+                    </div>
+                </div>
+                <div class="col-9">
+                    <label class="muted muteTxt maoredNameLable" for="maoredNameInp"> {{"userData.lable" | translate}} </label>
+                    <input class="w-100 " id="maoredNameInp"  type="text">
+                </div>
+                </div>
+                <div class="observation p-5">
+                    <div class="row">
+                        <div class="col-3">
+                            <p class=" muteTxt my-0"> {{ "resourceData.type.lable" | translate}} </p>
+                        </div>
+
+                        <div class="mutedTxt col-4">
+                            <div class="Op d-flex align-items-center" (click)="isDay=true">
+                                <span [ngClass]="[isDay?'active':'notActive','mx-1']">
+                                </span>
+                                {{ "resourceData.type.day" | translate}}
+                            </div>
+                        </div>
+
+                        <div class="mutedTxt col-5">
+                            <div class="Op d-flex align-items-center" (click)="isDay=false">
+                                <span [ngClass]="[isDay?'notActive':'active','mx-1']">
+                                </span>
+                                {{ "resourceData.type.days.text" | translate}}
+                                <span class="muteTxt">({{ "resourceData.type.days.note" | translate}})</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 border mutedTxtBook">
+            <div class="observationDetails">
+                <div class="avaliable">
+                    <p class="muteTxt">{{"resourceData.duration.duration.lable" | translate}}</p>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                <div class="time">
+                    <p class="muteTxt">{{"resourceData.duration.time.lable" | translate}}</p>
+                    <div>
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div>
+                                    <div class="Op d-flex align-items-center" (click)="fixedTiming=false">
+                                        <span [ngClass]="[fixedTiming?'notActive':'active']">
+                                            <span></span>
+                                        </span>
+                                        <img class="mx-1" width="" src="../../assets/images/box-time.png" alt=""> 
+                                        {{ "resourceData.duration.time.serviceTime" | translate}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="Op d-flex align-items-center" (click)="fixedTiming=true">
+                                    <span [classList]="fixedTiming?'active':'notActive'">
+                                        <span></span>
+                                    </span>
+                                    <img class="mx-1" width="" src="../../assets/images/clock.png" alt=""> 
+                                    {{ "resourceData.duration.time.fixedTime" | translate}}
+                                </div>
+                            </div>
+                            <div *ngIf="fixedTiming" class="col">
+                                <div class="duration">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span (click)="timing = timing+1" class="increase">+</span>
+                                        <span class="minutes"> {{timing}} {{ "resourceData.duration.time.unit" | translate}}</span>
+                                        <span (click)="timing = timing-1" class="decrease">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="multyBooking">
+                    <p class="muteTxt">{{"resourceData.duration.multipleBooking.lable" | translate}} <img src="../../assets/images/info-circle.png" alt=""></p>
+                    <div class="row align-items-center">
+                        <div class="col-4">
+
+                            <div class="Op d-flex align-items-center" (click)="multyBooking=false">
+                                <span [ngClass]="[multyBooking?'notActive':'active']">
+                                    <span></span>
+                                </span>
+                                <img class="mx-1" width="" src="../../assets/images/oneBook.png" alt=""> 
+                                {{ "resourceData.duration.multipleBooking.forOne" | translate}}
+                            </div>
+
+                        </div>
+                        <div class="col-5">
+                            <div class="Op d-flex align-items-center" (click)="multyBooking=true">
+                                <span [ngClass]="[multyBooking?'active':'notActive']">
+                                    <span></span>
+                                </span>
+                                <img class="mx-1" width="" src="../../assets/images/manyBook.png" alt=""> 
+                                {{ "resourceData.duration.multipleBooking.forMore" | translate}}
+                            </div>                        
+                        </div>
+                        <div *ngIf="multyBooking" class="col">
+                            <div class="numbers">
+                                <label class="d-flex align-items-center" for="number">
+                                    <span class="unit">
+                                        {{ "resourceData.duration.multipleBooking.unit" | translate}}
+                                    </span>
+                                    <input type="number" min="2" max="99" id="number" step="1">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-list-maored></app-list-maored>
